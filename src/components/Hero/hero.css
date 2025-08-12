@@ -55,7 +55,19 @@
     opacity: 0;
   }
 }
-
+/* .slide-down {
+  animation: slide-down 0.8s ease forwards;
+}
+@keyframes slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+} */
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);

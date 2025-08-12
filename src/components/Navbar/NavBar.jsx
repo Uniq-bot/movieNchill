@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import logo from "../../assets/logo.png"; // Assuming you have a logo image
-function NavBar({ select, setSelect, search, setSearch }) {
+import { useNavigate } from "react-router-dom";
+function NavBar({ select, setSelect, search, setSearch, user, isLoggedIn, setIsLoggedIn }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const menuData = [
     {
       category: "Movies",
@@ -54,7 +54,7 @@ function NavBar({ select, setSelect, search, setSearch }) {
         <nav>
           <div className="logo">
             <div className="logo-ig">
-              <img src={logo} alt="" />
+              <img src={logo} alt="" className="logoo"/>
             </div>
             <div className="menu" onClick={toggleMenu}>
               <h3> menu</h3>
@@ -98,8 +98,23 @@ function NavBar({ select, setSelect, search, setSearch }) {
             </h3>
             <div className="auth">
               <h3>
-                <i className="ri-login-box-line"></i>
-                Login
+                {
+                  isLoggedIn ? (
+                    <>
+                    <span>Welcome, {user}</span> &nbsp;
+                    <a href="/login"><i className="ri-logout-box-line" onClick={()=>{
+                      setIsLoggedIn(false);
+                      setUser('');
+                    }} ></i></a>
+                    </>
+                  ) : (
+                    <>
+                    <i className="ri-login-box-line"></i>
+                    <a href="/login">Login</a></>
+                  )
+                }
+                {/* 
+                Login */}
               </h3>
             </div>
           </div>

@@ -48,7 +48,7 @@ function Hero({ movies }) {
 
       {/* Next image slides in only when animating */}
       {isAnimating && nextMovie && (
-        <div className="slide ">
+        <div className={`slide ${isAnimating ? "slide-out" : ""}`} >
           <img
             key={nextMovie.id}
             src={`https://image.tmdb.org/t/p/original${nextMovie.backdrop_path}`}
@@ -61,7 +61,8 @@ function Hero({ movies }) {
 
       {/* Info Overlay */}
       {currentMovie && (
-        <div className={`hero-info ${showInfo ? "show" : ""}`}>
+        <div className={`hero-info ${showInfo ? "show" : ""} ${isAnimating ? "slide-out" : ""}  `}>
+          <img src={`https://image.tmdb.org/t/p/original/${currentMovie.poster_path}`} alt="" style={{width:'150px'}}  />
           <h1>{currentMovie.title}</h1>
           <p>
             {currentMovie.overview

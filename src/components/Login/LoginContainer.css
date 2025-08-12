@@ -1,0 +1,147 @@
+/* Header */
+.login-page {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #141414;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+.login-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/NP-en-20250721-TRIFECTA-perspective_badb7f58-8542-49b9-821c-0478cbecf615_large.jpg");
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.header .logo {
+  width: 300px;
+    height: auto;
+  cursor: pointer;
+  filter: none; /* Keep original colors */
+  object-fit: contain;
+  
+}
+
+/* Login container */
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 60px 68px 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+
+/* Title */
+.login-container h1 {
+  margin: 0 0 28px 0;
+  font-weight: 700;
+  font-size: 32px;
+  color: white;
+  letter-spacing: 1.2px;
+}
+
+/* Input groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #8c8c8c;
+  letter-spacing: 0.5px;
+}
+
+.input-group input {
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: #333;
+  color: white;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: #8c8c8c;
+}
+
+.input-group input:focus {
+  background: #454545;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 16px 0;
+  background-color: #e50914;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  margin-top: 24px;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #f6121d;
+}
+
+/* Register link */
+.register-link {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #737373;
+  text-align: center;
+}
+
+.register-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweak */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 40px 20px;
+  }
+}

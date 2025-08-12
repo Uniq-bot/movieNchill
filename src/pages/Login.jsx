@@ -1,10 +1,10 @@
 import React from 'react'
-
-function Login() {
+import LoginContainer from '../components/Login/LoginContainer'
+function Login({ setLogin, setUser, user }) {
   return (
-    <div>
-        
-    </div>
+   <>
+   <LoginContainer setLogin={setLogin} setUser={setUser} user={user} />
+   </>
   )
 }
 
