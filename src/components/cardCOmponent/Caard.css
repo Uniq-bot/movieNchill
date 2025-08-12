@@ -33,8 +33,20 @@
   width: 100%;
   overflow-x: auto;
   padding: 20px;
-  align-items: flex-start;
+  align-items: center;
   scroll-behavior: smooth;
+
+}
+
+.trend-movies button {
+  background-color: transparent;
+  border: none;
+  color: #f5c518;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .card {

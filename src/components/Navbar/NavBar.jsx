@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NavBar.css";
-
+import logo from "../../assets/logo.png"; // Assuming you have a logo image
 function NavBar({ select, setSelect, search, setSearch }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -53,7 +53,9 @@ function NavBar({ select, setSelect, search, setSearch }) {
       <header>
         <nav>
           <div className="logo">
-            <h1>movieNchill</h1>
+            <div className="logo-ig">
+              <img src={logo} alt="" />
+            </div>
             <div className="menu" onClick={toggleMenu}>
               <h3> menu</h3>
             </div>
@@ -102,28 +104,26 @@ function NavBar({ select, setSelect, search, setSearch }) {
             </div>
           </div>
         </nav>
-        <div
-        className="menus-container"
-        style={{
-          transform: menuOpen ? "translateY(0)" : "translateY(-100%)",
-          transition: "transform 0.3s ease",
-        }}
-      >
-        <div className="datas">
-          {menuData.map((data, index) => (
-            <div key={index} className="menu-items">
-              <h3>
-                {data.icon} {data.category}
-              </h3>
-              <ul>
-                {data.items.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
+       <div
+  className={`menus-container ${menuOpen ? "open" : ""}`}
+>
+  <div className="datas">
+    <button onClick={()=>setMenuOpen(false)}><h1>X</h1></button>
+    {menuData.map((data, index) => (
+      <div key={index} className="menu-items">
+        <h3>
+          {data.icon} {data.category}
+        </h3>
+        <ul>
+          {data.items.map((item, i) => (
+            <li key={i}>{item}</li>
           ))}
-        </div>
+        </ul>
       </div>
+    ))}
+  </div>
+</div>
+
       </header>
     </div>
   );

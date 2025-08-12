@@ -2,7 +2,15 @@ import React from "react";
 import "./Caard.css";
 
 function Caard({ movies }) {
-  const TrendMovies = movies.filter((movie) => movie.vote_average > 7.1);
+   const now = new Date();
+  const thirtyDaysAgo = new Date(now);
+  thirtyDaysAgo.setDate(now.getDate() - 30);
+
+
+ const TrendMovies = movies.filter(movie => {
+    const releaseDate = new Date(movie.release_date);
+    return releaseDate >= thirtyDaysAgo && releaseDate <= now;
+  });
   const fanFav = movies.filter(
     (movie) => movie.popularity > 300 && movie.vote_average <= 7.1
   );
@@ -23,7 +31,9 @@ function Caard({ movies }) {
             movie={movie}
             onWatchlist={handleWatchlist}
           />
+
         ))}
+        <button>Showmore</button>
       </div>
 
       <div className="trends">
@@ -37,6 +47,8 @@ function Caard({ movies }) {
             onWatchlist={handleWatchlist}
           />
         ))}
+        <button>Showmore</button>
+
       </div>
     </div>
   );

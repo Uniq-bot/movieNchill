@@ -4,7 +4,16 @@ header {
     background-color: #121212;
     padding: 0.5em 3em;
 }
-
+.logo-ig{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-ig img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the image circular */
+}
 nav {
     width: 70%;
     margin: auto;
@@ -16,9 +25,10 @@ nav {
 }
 
 .logo {
+    width: 10%;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
 }
 
 .searchbar {
@@ -63,28 +73,30 @@ nav {
 
     gap: 1em;
 }
-
-.menus-container{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: #121212;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    color: white;
-    transform: translateY(-100%);
-    display: none;
-    
+.menus-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+  top: 0;
+  left: 0;
+  color: white;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999999999999999999999;
 }
-.datas{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10em;
-    margin: auto;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.menus-container.open {
+  transform: translateY(0);
+}
+
+.datas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10em;
+  margin: auto;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

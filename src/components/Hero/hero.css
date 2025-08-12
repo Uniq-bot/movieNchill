@@ -40,7 +40,7 @@
 }
 
 .slide-in-next {
-  animation: slideInFromRight 0.8s forwards;
+  animation: slideInFromRight 1s linear forwards;
  
  
 }
