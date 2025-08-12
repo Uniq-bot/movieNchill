@@ -1,0 +1,90 @@
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: #121212;
+    padding: 0.5em 3em;
+}
+
+nav {
+    width: 70%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchbar {
+    width: 45%;
+    background-color: white;
+    display: flex;
+    height: 45%;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.searchbar input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    outline: none;
+}
+
+.searchbar input::placeholder {
+    color: #121212;
+    text-align: center;
+}
+
+.searchbar select {
+    border: none;
+    height: 100%;
+    min-width: 10%;
+    outline: none;
+    text-align-last: center; /* centers text inside select */
+    white-space: nowrap;
+    background-color: white;
+    cursor: pointer;
+}
+
+.portal {
+    display: flex;
+    min-width: 11%;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1em;
+}
+
+.menus-container{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #121212;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+    transform: translateY(-100%);
+    display: none;
+    
+}
+.datas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10em;
+    margin: auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
