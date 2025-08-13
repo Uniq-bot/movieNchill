@@ -1,7 +1,9 @@
 import React from "react";
 import "./Caard.css";
-
-function Caard({ movies }) {
+import MovieCard from "./MovieCard"; // Adjust the import path as necessary
+import { useNavigate } from "react-router-dom";
+function Caard({ movies, setGenre }) {
+  const navigate= useNavigate();
   const now = new Date();
   const thirtyDaysAgo = new Date(now);
   thirtyDaysAgo.setDate(now.getDate() - 30);
@@ -17,7 +19,7 @@ function Caard({ movies }) {
   };
 
   const movieCategories = {
-    Latest: shuffleArray(
+    'Latest': shuffleArray(
       movies.filter((movie) => {
         const releaseDate = new Date(movie.release_date);
         return releaseDate >= thirtyDaysAgo && releaseDate <= now;
@@ -25,7 +27,7 @@ function Caard({ movies }) {
     ),
     "Fan Favorite": shuffleArray(
       movies.filter(
-        (movie) => movie.popularity > 300 && movie.vote_average <= 7.1
+        (movie) => movie.popularity > 200 && movie.vote_average <= 10
       )
     ),
     "Top Rated": shuffleArray(
@@ -48,51 +50,39 @@ function Caard({ movies }) {
   const handleWatchlist = (movie) => {
     console.log(`Added "${movie.title}" to watchlist`);
   };
+const handleShowmore = (categoryName, movies) => {
+  console.log("Show more movies clicked:", categoryName);
+  setGenre([categoryName, movies]);  // example: pass as tuple [categoryName, movies]
+  navigate('/genres', { state: { genre: [categoryName, movies] } });
+};
+
 
   return (
     <div className="movies-container">
       {Object.entries(movieCategories).map(([categoryName, categoryMovies]) => (
-        <div key={categoryName} className="category-section">
-          <h1 className="trends-title">{categoryName}</h1>
-          <div className="trend-movies">
-            {categoryMovies.length > 0 ? (
-              categoryMovies.map((movie) => (
-                <MovieCard
-                  key={movie.id}
-                  movie={movie}
-                  onWatchlist={handleWatchlist}
-                />
-              ))
-            ) : (
-              <p>No movies found in this category.</p>
-            )}
-            <button>Show More</button>
-          </div>
-        </div>
-      ))}
+  <div key={categoryName} className="category-section">
+    <h1 className="trends-title">{categoryName}</h1>
+    <div className="trend-movies">
+      {categoryMovies.length > 0 ? (
+        categoryMovies.slice(0,8).map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            onWatchlist={handleWatchlist}
+          />
+        ))
+      ) : (
+        <p>No movies found in this category.</p>
+      )}
+      <button onClick={() => handleShowmore(categoryName, categoryMovies)}>Show More</button>
+    </div>
+  </div>
+))}
+
     </div>
   );
 }
 
 export default Caard;
 
-const MovieCard = ({ movie, onWatchlist }) => {
-  return (
-    <div className="card">
-      <div className="card-image">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-          alt={movie.title}
-        />
-      </div>
-      <div className="card-info">
-        <h2 className="card-title">{movie.title}</h2>
-        <div className="card-meta">
-          ⭐ {movie.vote_average.toFixed(1)}/10{" "}
-          <span className="card-review">({movie.vote_count} reviews)</span>
-          <button onClick={() => onWatchlist(movie)}>WatchList</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+

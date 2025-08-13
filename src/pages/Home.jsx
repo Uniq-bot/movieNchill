@@ -4,7 +4,7 @@ import Hero from '../components/Hero/Hero'
 import Caard from '../components/cardCOmponent/Caard'
 import Footer from '../components/Footer/Footer'
 import { useNavigate } from 'react-router'
-function Home({movies, user, isLoggedIn, setIsLoggedIn}) {
+function Home({movies, user, isLoggedIn, setIsLoggedIn, setGenre}) {
   const navigate = useNavigate();
     const [select, setSelect]=useState('')
     const [search, setSearch]=useState('')
@@ -20,7 +20,7 @@ function Home({movies, user, isLoggedIn, setIsLoggedIn}) {
    <>
    <NavBar select={select} setSelect={setSelect} search={search} setSearch={setSearch} user={user} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
    <Hero movies={movies}  />
-   <Caard movies={movies} />
+   <Caard movies={movies} setGenre={setGenre} />
 
 
 

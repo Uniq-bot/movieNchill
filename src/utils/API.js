@@ -8,7 +8,7 @@ const FetchMovies = async () => {
     const allMovies = [];
 
     // Fetch 5 pages to get ~100 movies
-    for (let page = 1; page <= 5; page++) {
+    for (let page = 1; page <= 20; page++) {
       const response = await axios.get(BASE_URL, {
         params: {
           api_key: API_KEY,

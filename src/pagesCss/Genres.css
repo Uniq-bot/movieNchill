@@ -1,0 +1,59 @@
+.genres-container {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.genres-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #000000;           /* Black text */
+  background-color: #f5c518; /* IMDb yellow */
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+
+.genres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* MovieCard wrapper assuming each card has a fixed width */
+.genre-item, /* if MovieCard uses this class */
+.card {
+  flex: 1 1 200px; /* grow, shrink, basis */
+  max-width: 220px;
+  box-sizing: border-box;
+}
+
+/* Responsive typography and spacing */
+@media (max-width: 768px) {
+  .genres-title {
+    font-size: 1.5rem;
+  }
+
+  .genres-list {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .genres-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90vw;
+  }
+}

@@ -27,6 +27,7 @@
 /* Keep your existing .trend-movies styles: */
 .trend-movies {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.2rem;
   width: 100%;
   overflow-x: auto;
