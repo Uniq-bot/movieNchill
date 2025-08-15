@@ -1,0 +1,107 @@
+/* watchlist.css */
+
+.coustumize-watchlist {
+  /* Placeholder for any custom section above the list */
+  margin-bottom: 2rem;
+}
+
+.watch-list-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  color: #fff;
+  background-color: #111; /* dark theme background */
+  border-radius: 10px;
+}
+
+.watch-list-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e50914; /* Netflix red accent */
+  padding-bottom: 0.5rem;
+}
+
+.watchlist-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 3rem 1rem 1rem;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  justify-content: space-between;
+}
+
+.watchlist-item.watched {
+  opacity: 0.5; /* fade effect */
+  filter: grayscale(100%); /* makes it look 'inactive' */
+  background: #2a2a2a; /* slightly different color */
+  transition: all 0.5s ease-in-out;
+}
+
+.watchlist-item img {
+  max-width: 150px;
+  border-radius: 8px;
+}
+.watchlist-item:last-child {
+  margin-bottom: 0; /* Remove margin for the last item */
+}
+
+.watchlist-item:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.02);
+}
+
+.watchlist-item img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.watchlist-item h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.watchlist-item p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .watchlist-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .watchlist-item img {
+    width: 80%;
+    height: auto;
+  }
+}
+
+.movie-actions {
+  display: flex;
+  gap: 1rem;
+}
+.movie-actions .markWatchedBtn {
+  background-color: #d3ae63; /* Netflix red */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.movie-actions .removeBtn {
+  background-color: #e50914; /* Netflix red */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

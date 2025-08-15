@@ -109,7 +109,7 @@
   color: #000;
 }
 
-.trend-movies button {
+.trend-movies #show-more-button {
   background-color: transparent;
   border: none;
   color: #f5c518;

@@ -53,9 +53,11 @@ function NavBar({ select, setSelect, search, setSearch, user, isLoggedIn, setIsL
       <header>
         <nav>
           <div className="logo">
+            <a href="/">
             <div className="logo-ig">
               <img src={logo} alt="" className="logoo"/>
             </div>
+            </a>
             <div className="menu" onClick={toggleMenu}>
               <h3> menu</h3>
             </div>
@@ -92,10 +94,11 @@ function NavBar({ select, setSelect, search, setSearch, user, isLoggedIn, setIsL
             />
           </div>
           <div className="portal">
+            <a href="/watchlist">
             <h3>
               <i className="ri-bookmark-line"></i>
               Watchlist
-            </h3>
+            </h3></a>
             <div className="auth">
               <h3>
                 {
@@ -105,6 +108,7 @@ function NavBar({ select, setSelect, search, setSearch, user, isLoggedIn, setIsL
                     <a href="/login"><i className="ri-logout-box-line" onClick={()=>{
                       setIsLoggedIn(false);
                       setUser('');
+                      
                     }} ></i></a>
                     </>
                   ) : (

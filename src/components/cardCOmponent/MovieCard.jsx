@@ -1,10 +1,30 @@
-import React from 'react'
-import './Caard.css'
+import React, { useState } from 'react';
+import './Caard.css';
 
+const MovieCard = ({ movie, setWatchlist }) => {
+  const [IsAdd, setIsAdd] = useState(false);
 
-const MovieCard = ({ movie, onWatchlist }) => {
+  const handleWatchlist = () => {
+    setWatchlist((prevWatchlist) => {
+      if (!IsAdd) {
+        // Add movie with watched flag
+        return [...prevWatchlist, { ...movie, watched: false }];
+      } else {
+        // Remove movie
+        return prevWatchlist.filter((item) => item.id !== movie.id);
+      }
+    });
+    setIsAdd(!IsAdd);
+  };
+
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        // navigate only if not clicking the button
+        navigate(`/movie/${movie.id}`);
+      }}
+    >
       <div className="card-image">
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -16,11 +36,20 @@ const MovieCard = ({ movie, onWatchlist }) => {
         <div className="card-meta">
           ⭐ {movie.vote_average.toFixed(1)}/10{" "}
           <span className="card-review">({movie.vote_count} reviews)</span>
-          <button onClick={() => onWatchlist(movie)}>WatchList</button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleWatchlist();
+            }}
+          >
+            {IsAdd ? 'Added' : 'Add to WatchList'}
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default MovieCard
+export default MovieCard;
