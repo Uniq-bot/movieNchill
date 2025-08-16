@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Caard.css';
-
+import { useNavigate } from 'react-router';
 const MovieCard = ({ movie, setWatchlist }) => {
   const [IsAdd, setIsAdd] = useState(false);
+  const navigate=useNavigate()
 
   const handleWatchlist = () => {
     setWatchlist((prevWatchlist) => {
@@ -16,14 +17,20 @@ const MovieCard = ({ movie, setWatchlist }) => {
     });
     setIsAdd(!IsAdd);
   };
+ const handleMovieDetail = (movie) => {
+  navigate(`/movie/${movie.id}`, { state: { movie } });
+};
+
 
   return (
     <div
       className="card"
       onClick={() => {
         // navigate only if not clicking the button
-        navigate(`/movie/${movie.id}`);
-      }}
+        handleMovieDetail(movie)
+      }
+    }
+    key={movie.id}
     >
       <div className="card-image">
         <img
@@ -31,7 +38,7 @@ const MovieCard = ({ movie, setWatchlist }) => {
           alt={movie.title}
         />
       </div>
-      <div className="card-info">
+      <div className="card-info" >
         <h2 className="card-title">{movie.title}</h2>
         <div className="card-meta">
           ⭐ {movie.vote_average.toFixed(1)}/10{" "}

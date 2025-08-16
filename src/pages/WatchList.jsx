@@ -12,6 +12,9 @@ function WatchList({
 }) {
   const [isWatched, setIsWatched] = useState(false);
   console.log("watchlist here:", watchlist);
+  const handleMovieDetail=(movie)=>{
+      console.log(movie.title);
+  }
   return (
     <>
       <div className="coustumize-watchlist"></div>
@@ -19,7 +22,7 @@ function WatchList({
         <h1>Your Recent Watchlist</h1>
         {watchlist.length > 0 ? (
           watchlist.map((movie) => (
-            <div key={movie.id} className={`watchlist-item ${movie.watched ? "watched" : ""}`}>
+            <div key={movie.id} className={`watchlist-item ${movie.watched ? "watched" : ""}`} onClick={()=>{handleMovieDetail(movie)}}>
               <div className="movie-info">
                 <img
                   src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

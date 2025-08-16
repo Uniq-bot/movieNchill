@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '../components/Navbar/NavBar'
 import Hero from '../components/Hero/Hero'
 import Caard from '../components/cardCOmponent/Caard'
-import Footer from '../components/Footer/Footer'
 import { useNavigate } from 'react-router'
 function Home({movies, setGenre, setWatchlist}) {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ function Home({movies, setGenre, setWatchlist}) {
 
 
 
-   <Footer />
    </>
   )
 }

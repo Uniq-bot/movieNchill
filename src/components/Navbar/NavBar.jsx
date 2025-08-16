@@ -94,7 +94,7 @@ function NavBar({ select, setSelect, search, setSearch, user, isLoggedIn, setIsL
             />
           </div>
           <div className="portal">
-            <a href="/watchlist">
+            <a href={isLoggedIn?"/watchlist":'/login  '}>
             <h3>
               <i className="ri-bookmark-line"></i>
               Watchlist

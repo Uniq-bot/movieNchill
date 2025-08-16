@@ -12,6 +12,8 @@
   color: #fff;
   background-color: #111; /* dark theme background */
   border-radius: 10px;
+  min-height: 90vh;
+  margin-bottom: 1em;
 }
 
 .watch-list-container h1 {

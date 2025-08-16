@@ -7,9 +7,10 @@ function LoginContainer({ setLogin, setUser, user }) {
   const [email, setEmail] = useState('')
   const [pass, setpass] = useState('')
 const [regi, setRegi] = useState(() => {
-  // Read from localStorage and parse, default to false
-  return JSON.parse(localStorage.getItem("regi")) || false;
+  const saved = localStorage.getItem("regi");
+  return saved ? JSON.parse(saved) : false;
 });
+
 
 // Whenever regi changes, save to localStorage
 
@@ -31,6 +32,10 @@ const [regi, setRegi] = useState(() => {
         setLogin(true)
         navigate('/')
       }
+    }
+    else{
+       setLogin(true)
+        navigate('/')
     }
     
   }
