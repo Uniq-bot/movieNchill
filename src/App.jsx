@@ -183,8 +183,10 @@ function AppWrapper({
 
         <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
-   <Footer />
-
+  
+ {showNavbar && (
+         <Footer />
+      )}
     </>
   );
 
